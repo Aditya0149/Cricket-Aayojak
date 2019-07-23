@@ -1,0 +1,7 @@
+<p>
+    This is tournament no {{tournamentDetails?.id}}
+</p>
+<button (click)="currentView='fixtures'">Fixtures</button>
+<button (click)="currentView='pointsTable'">Points table</button> 
+<app-fixtures [tournamentId]="tournamentId" *ngIf="currentView == 'fixtures'" ></app-fixtures>       
+<app-points-table [tournamentId]="tournamentId" *ngIf="currentView == 'pointsTable'"></app-points-table>

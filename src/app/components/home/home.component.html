@@ -1,0 +1,20 @@
+<section class="login" *ngIf="!tournamentDetailsService.host">
+  <form (submit)="hostLogin()" [formGroup]="loginForm">
+      Host ID : <input type="text" formControlName="hostId" ><br/>
+      Password : <input type="text" formControlName="password" >
+      <button type="submit">Login as host</button>
+  </form>
+  <br/><br/>
+</section>
+<section *ngIf="tournamentDetailsService.host">
+  <button (click)="logout()">logout</button>
+  <h2>Hello {{tournamentDetailsService.host.hostId}}</h2>
+  <p>Your Tournaments</p>
+  <div *ngIf="!tournaments.length">
+    You have no running tournaments
+  </div>
+</section>
+
+<div *ngFor="let tournament of tournaments;">
+    <a routerLink="/tournament-details/{{tournament.id}}">Tournament no {{tournament.id}}</a>
+</div><br/>

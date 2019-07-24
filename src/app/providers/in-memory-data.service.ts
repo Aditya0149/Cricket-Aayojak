@@ -7,15 +7,18 @@ export class InMemoryDataService implements InMemoryDbService {
 
   constructor() { }
   createDb() {
+    let teams: any = [
+      {id:1, name:'Team Malewad A', password: 'a', phone: '1111111111', address:'Malewad'},
+      {id:2, name:'Team Adali', password: 'b', phone: '2222222222', address:'Adali'},
+      {id:3, name:'Team Bhedshi', password: 'c', phone: '3333333333', address:'Bhedshi'},
+      {id:4, name:'Team Malewad B', password: 'd', phone: '4444444444', address:'Malewad'}
+    ];
     const tournaments: any = [
-      { id: 1, hostid: 'host1' },
-      { id: 2, hostid: 'host2' },
-      { id: 3, hostid: 'host1' },
-      { id: 4, hostid: 'host3' },
-      { id: 5, hostid: 'host3' },
-      { id: 6, hostid: 'host1' },
-      { id: 7, hostid: 'host2' },
-      { id: 8, hostid: 'host1' }
+      { id: 1, teamId: '1', name:'Malewad A tournament 2019', playerCount: 5, entryFee : 100, reEntryFee : 150, prize1 : 1000, prize2 : 750, startDate : '22-07-2019', endDate : '30-07-2019'},
+      { id: 2, teamId: '2', name:'Adali tournament 2019 no 1', playerCount: 5, entryFee : 200, reEntryFee : 250, prize1 : 3000 , prize2  : 1200, startDate : '27-07-2019', endDate : '02-08-2019' },
+      { id: 3, teamId: '3', name:'Bhedshi tournament 2019', playerCount: 5, entryFee : 100, reEntryFee : 150, prize1 : 2500 , prize2  : 800, startDate : '02-08-2019', endDate : '10-08-2019' },
+      { id: 4, teamId: '4', name:'Malewad B tournament 2019', playerCount: 5, entryFee : 100, reEntryFee : 150, prize1 : 2500 , prize2  : 800, startDate : '22-07-2019', endDate : '25-07-2019' },
+      { id: 5, teamId: '2', name:'Adali tournament 2019 no 2', playerCount: 5, entryFee : 100, reEntryFee : 150, prize1 : 2500 , prize2  : 800, startDate : '20-07-2019', endDate : '28-07-2019' }
     ];
     const fixtures: any = [
       { id: "1", team1: "T1", team2: "T2", status: "not started", tournamentId: "1", statusDetails: "T1 won by 10 runs" },
@@ -49,7 +52,17 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: "12", team: "T1", points: "4", tournamentId: "5"},
       { id: "13", team: "T4", points: "4", tournamentId: "1"}
     ];
-    return { tournaments, fixtures, pointsTable };
+    let liveMatches: any = [
+      { id : 1, teamBat1: 'Team Adali', teamBat2:'Team Malewad', venue: 'Malewad', tournamentId: '1'},
+      { id : 2, teamBat1: 'Team Bhedshi', teamBat2:'Team Adali', venue: 'Adali', tournamentId: '4'},
+      { id : 3, teamBat1: 'Team Malewad', teamBat2:'Team Bhedshi', venue: 'Malewad', tournamentId: '5'}
+    ];
+    let liveScores: any = [
+      { id : 1, score: "{runs:15,wickets:1,overs:2.2,batsmanStrike:'Adalitlo Gandel-10(5)',batsmanNonStrike:'Adalitlo Barako-1(2)',bowler:'Aditya-1(2)'}", target: '70/5-6'},
+      { id : 2, score: "{runs:75,wickets:2,overs:5.0,batsmanStrike:'Bhedshitlo Gandel-30(15)',batsmanNonStrike:'Bhedshitlo Barako-20(12)',bowler:'Aditya-10(6)'}", target: ''},
+      { id : 2, score: "{runs:50,wickets:4,overs:4.0,batsmanStrike:'Aditya-20(5)',batsmanNonStrike:'Sitaram-20(4)',bowler:'Barako-20(6)'}", target: ''}
+    ];
+    return { tournaments, fixtures, pointsTable, teams, liveMatches, liveScores };
   }
 
 

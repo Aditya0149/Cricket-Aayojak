@@ -13,6 +13,8 @@ import { EnterMatchResultComponent } from './components/enter-match-result/enter
 import { InMemoryDataService }  from './providers/in-memory-data.service';
 import { PointsTableComponent } from './components/points-table/points-table.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PointsTableComponent
   ],
   imports: [
+    NgbModule,
+    MatSidenavModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

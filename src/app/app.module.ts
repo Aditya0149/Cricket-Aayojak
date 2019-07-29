@@ -3,18 +3,20 @@ import { NgModule } from '@angular/core';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule }    from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { AppRoutingModule } from '../shared/app-routing/app-routing.module';
-import { TournamentDetailsComponent } from './components/tournament-details/tournament-details.component';
-import { AddTeamsComponent } from './components/add-teams/add-teams.component';
-import { FixturesComponent } from './components/fixtures/fixtures.component';
-import { ScheduleTournamentComponent } from './components/schedule-tournament/schedule-tournament.component';
-import { EnterMatchResultComponent } from './components/enter-match-result/enter-match-result.component';
-import { InMemoryDataService }  from './providers/in-memory-data.service';
-import { PointsTableComponent } from './components/points-table/points-table.component';
+import { HomeComponent } from './views/home/home.component';
+import { AppRoutingModule } from '../shared/modules/app-routing/app-routing.module';
+import { TournamentDetailsComponent } from './views/tournament-details/tournament-details.component';
+import { AddTeamsComponent } from './views/add-teams/add-teams.component';
+import { FixturesComponent } from './views/fixtures/fixtures.component';
+import { ScheduleTournamentComponent } from './views/schedule-tournament/schedule-tournament.component';
+import { EnterMatchResultComponent } from './views/enter-match-result/enter-match-result.component';
+import { InMemoryDataService }  from '../shared/providers/in-memory-data.service';
+import { PointsTableComponent } from './views/points-table/points-table.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { AppMaterialModule } from '../shared/modules/app-material/app-material.module';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+
 
 @NgModule({
   declarations: [
@@ -25,18 +27,19 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     FixturesComponent,
     ScheduleTournamentComponent,
     EnterMatchResultComponent,
-    PointsTableComponent
+    PointsTableComponent,
+    SidenavComponent
   ],
   imports: [
-    NgbModule,
-    MatSidenavModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    AppMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

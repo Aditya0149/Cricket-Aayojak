@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TournamentDetailsService } from '../../providers/tournament-details.service'
+import { TournamentDetailsService } from '../../../shared/providers/tournament-details.service'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({

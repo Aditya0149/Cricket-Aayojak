@@ -1,2 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<router-outlet></router-outlet>
+<mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="sidenav.here()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Responsive App</h1>
+  </mat-toolbar>
+<mat-sidenav-container class="example-container" >
+  <app-sidenav #sidenav></app-sidenav>
+  <mat-sidenav-content>
+      
+    <router-outlet></router-outlet>      
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+

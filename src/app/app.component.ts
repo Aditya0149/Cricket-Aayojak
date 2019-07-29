@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChildren } from '@angular/core';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cricket-ayojak';
+  fillerNav = [
+    "News/Feeds",
+    "Rankings",
+    "Search",
+    "Team Login",
+    "Register team"
+  ]
 }

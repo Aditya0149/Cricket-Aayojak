@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TournamentDetailsService } from '../../providers/tournament-details.service';
+import { TournamentDetailsService } from '../../../shared/providers/tournament-details.service';
 import { ActivatedRoute } from '@angular/router'
 @Component({
   selector: 'app-tournament-details',

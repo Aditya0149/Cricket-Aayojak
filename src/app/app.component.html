@@ -1,15 +1,38 @@
-<mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="sidenav.here()"><mat-icon>menu</mat-icon></button>
-    <h1 class="example-app-name">Responsive App</h1>
-  </mat-toolbar>
-<mat-sidenav-container class="example-container" >
-  <app-sidenav #sidenav></app-sidenav>
-  <mat-sidenav-content>
-      
-    <router-outlet></router-outlet>      
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand mx-auto" routerLink="">Home</a>
+  <ul class="navbar-nav"> 
+    <li class="nav-item active" *ngFor="let link of navList;">
+      <a class="nav-link" [routerLink]="link.url" >{{link.name}}</a>
+    </li>
+    <li class="nav-item" ngbDropdown>
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profile</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem>Team Login</button>
+        <button ngbDropdownItem>Player Login</button>
+        <button ngbDropdownItem>Sign Up</button>
+      </div>
+    </li>
+  </ul> 
+  <div class="form-inline has-search col-md-4">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input class="form-control mr-sm-2 col-md-12" [(ngModel)]="searchKey" type="search" placeholder="Search a team or a player" aria-label="Search">
+  </div>
+    <!-- <ul class="navbar-nav navbar-right">
+        <li class="nav-item" ngbDropdown>
+          <button class="btn btn-outline-primary m1-auto" id="dropdownBasic1" ngbDropdownToggle>Login</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Team Login</button>
+            <button ngbDropdownItem>Player Login</button>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="" >Sign Up</a>
+        </li>
+      </ul> -->
+</nav>
+ 
+ <router-outlet></router-outlet>      
+ 
 
 
 

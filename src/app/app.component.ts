@@ -1,6 +1,4 @@
-import { Component, ViewChildren } from '@angular/core';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-
+import { Component, ViewChildren, ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,11 +6,9 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 })
 export class AppComponent {
   title = 'cricket-ayojak';
-  fillerNav = [
-    "News/Feeds",
-    "Rankings",
-    "Search",
-    "Team Login",
-    "Register team"
-  ]
+  navList = [
+    { name : "Rankingss", url : "rankings"}
+  ];
+  searchKey:string;
+
 }

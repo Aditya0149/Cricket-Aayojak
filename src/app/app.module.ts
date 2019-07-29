@@ -15,8 +15,7 @@ import { PointsTableComponent } from './views/points-table/points-table.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppMaterialModule } from '../shared/modules/app-material/app-material.module';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,11 +26,11 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     FixturesComponent,
     ScheduleTournamentComponent,
     EnterMatchResultComponent,
-    PointsTableComponent,
-    SidenavComponent
+    PointsTableComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(

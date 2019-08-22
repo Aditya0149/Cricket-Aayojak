@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let fixture of fixtures;">
+        {{fixture.team1}} vs {{fixture.team2}}<br/>
+        {{fixture.statusDetails}}
+        <div *ngIf="tournamentDetailsService.host">
+            <button>{{fixture.status == 'not started' ? 'Add' : 'Edit'}}</button>
+        </div>
+    </li>
+</ul>

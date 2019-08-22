@@ -1,38 +1,46 @@
 <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand mx-auto" routerLink="">Home</a>
-  <ul class="navbar-nav"> 
+  <ul class="navbar-nav top_nav"> 
     <li class="nav-item active" *ngFor="let link of navList;">
       <a class="nav-link" [routerLink]="link.url" >{{link.name}}</a>
     </li>
+    
     <li class="nav-item" ngbDropdown>
       <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profile</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="profile_dropdown">
         <button ngbDropdownItem>Team Login</button>
         <button ngbDropdownItem>Player Login</button>
         <button ngbDropdownItem>Sign Up</button>
       </div>
     </li>
   </ul> 
-  <div class="form-inline has-search col-md-4">
+  <div class="form-inline has-search col-md-10 col-sm-10 mx-auto mb-2">
     <span class="fa fa-search form-control-feedback"></span>
     <input class="form-control mr-sm-2 col-md-12" [(ngModel)]="searchKey" type="search" placeholder="Search a team or a player" aria-label="Search">
   </div>
-    <!-- <ul class="navbar-nav navbar-right">
-        <li class="nav-item" ngbDropdown>
-          <button class="btn btn-outline-primary m1-auto" id="dropdownBasic1" ngbDropdownToggle>Login</button>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem>Team Login</button>
-            <button ngbDropdownItem>Player Login</button>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="" >Sign Up</a>
-        </li>
-      </ul> -->
 </nav>
  
  <router-outlet></router-outlet>      
  
 
+<!-- <section class="login" *ngIf="!tournamentDetailsService.host">
+  <form (submit)="hostLogin()" [formGroup]="loginForm">
+      Host ID : <input type="text" formControlName="hostId" ><br/>
+      Password : <input type="text" formControlName="password" >
+      <button type="submit">Login as host</button>
+  </form>
+  <br/><br/>
+</section>
+<section *ngIf="tournamentDetailsService.host">
+  <button (click)="logout()">logout</button>
+  <h2>Hello {{tournamentDetailsService.host.hostId}}</h2>
+  <p>Your Tournaments</p>
+  <div *ngIf="!tournaments.length">
+    You have no running tournaments
+  </div>
+</section> -->
+
+<!-- <div *ngFor="let tournament of tournaments;">
+    <a routerLink="/tournament-details/{{tournament.id}}">{{tournament.name}}</a>
+</div> -->
 
 

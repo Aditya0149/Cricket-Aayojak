@@ -1,0 +1,40 @@
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+        <p class="mb-0 text-center tournament_name" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+            {{tournament.name}}
+        </p>
+        </div>
+
+        <div class="collapse show" id="collapseExample" [ngbCollapse]="isCollapsed">
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
+                    playerCount : <span class="badge badge-primary badge-pill">{{tournament.playerCount}}</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
+                    entryFee : <span class="badge badge-primary badge-pill">{{tournament.entryFee}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
+                    reEntryFee : <span class="badge badge-primary badge-pill">{{tournament.reEntryFee}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
+                    prize1 : <span class="badge badge-primary badge-pill">{{tournament.prize1}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
+                    prize2 : <span class="badge badge-primary badge-pill">{{tournament.prize2}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
+                    startDate : <span class="badge badge-primary badge-pill">{{tournament.startDate}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
+                    endDate : <span class="badge badge-primary badge-pill">{{tournament.endDate}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-center align-items-center col-md-8 mx-auto">
+                    <a class="btn btn-link" routerLink="/tournament-details/{{tournament.id}}" [state]="{ hello: 'world' }" >View More Details</a>
+                </li>
+            </ul>
+   
+        </div>
+    </div>
+</div>

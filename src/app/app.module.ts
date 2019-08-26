@@ -13,39 +13,42 @@ import { EnterMatchResultComponent } from './views/enter-match-result/enter-matc
 import { InMemoryDataService }  from '../shared/providers/in-memory-data.service';
 import { PointsTableComponent } from '../shared//components/points-table/points-table.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppMaterialModule } from '../shared/modules/app-material/app-material.module';
 import { FormsModule } from '@angular/forms';
 import { TournamentPaneComponent } from '../shared/components/tournament-pane/tournament-pane.component';
 import { RankingsComponent } from './views/rankings/rankings.component';
 import { ErrorComponent } from './views/error/error.component';
 import { httpInterceptorProviders } from "../http-interceptors/index";
+import { HostModule } from './host/host.module';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    TournamentDetailsComponent,
-    AddTeamsComponent,
-    FixturesComponent,
+ //   HomeComponent,
+//    TournamentDetailsComponent,
+//    AddTeamsComponent,
+//    FixturesComponent,
     ScheduleTournamentComponent,
     EnterMatchResultComponent,
-    PointsTableComponent,
-    TournamentPaneComponent,
-    RankingsComponent,
+ //   PointsTableComponent,
+  //  TournamentPaneComponent,
+ //   RankingsComponent,
     ErrorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-    ReactiveFormsModule,
     NgbModule,
-    AppMaterialModule
+    AppMaterialModule,
+    UsersModule,
+    HostModule,
+    AppRoutingModule,
   ],
   providers: [
     httpInterceptorProviders

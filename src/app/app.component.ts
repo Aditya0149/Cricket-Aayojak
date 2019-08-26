@@ -7,8 +7,9 @@ import { Component, ViewChildren, ChangeDetectorRef } from '@angular/core';
 export class AppComponent {
   title = 'cricket-ayojak';
   navList = [
-    { name : "Home", url : ""},
-    { name : "Rankings", url : "rankings"}
+    { name : "Home", url : "home"},
+    { name : "Rankings", url : "rankings"},
+    { name : "Host", url : "host"}
   ];
   searchKey:string;
 

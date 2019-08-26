@@ -7,15 +7,18 @@ import { ErrorComponent } from '../../../app/views/error/error.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'rankings', component: RankingsComponent },
-  { path: 'tournament-details/:id', component: TournamentDetailsComponent },
+  // { path: 'home', component: HomeComponent },
+  // { path: 'rankings', component: RankingsComponent },
+  // { path: 'tournament-details/:id', component: TournamentDetailsComponent },
   { path: '**', component: ErrorComponent }
 ]
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(
+      routes
+     // { enableTracing: true } // <-- debugging purposes only
+    ),
   ],
   exports: [
     RouterModule

@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark bg-dark">
   <ul class="navbar-nav top_nav"> 
-    <li class="nav-item active" *ngFor="let link of navList;">
-      <a class="nav-link" [routerLink]="link.url" >{{link.name}}</a>
-    </li>
+    <li class="nav-item" *ngFor="let link of navList;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a class="nav-link" [routerLink]="link.url"  >{{link.name}}</a>
+     </li>
     
     <li class="nav-item" ngbDropdown>
       <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profile</button>

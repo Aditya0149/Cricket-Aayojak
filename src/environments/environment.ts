@@ -5,6 +5,8 @@
 export const environment = {
   production: false
 };
+// Barakya base add url here.
+export const BASE_URL = "api";
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Tounrament } from '../../interfaces/tournament';
+import { Tounrament } from '../../types/tournament';
 @Component({
   selector: 'app-tournament-pane',
   templateUrl: './tournament-pane.component.html',

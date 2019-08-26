@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TournamentDetailsService } from '../../../../shared/providers/tournament-details.service';
+import { TournamentDetailsService } from '../../../providers/tournament-details.service';
 
 @Component({
   selector: 'app-fixtures',

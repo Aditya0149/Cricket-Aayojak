@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TournamentDetailsService } from '../../../shared/providers/tournament-details.service';
+import { TournamentDetailsService } from '../../providers/tournament-details.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 

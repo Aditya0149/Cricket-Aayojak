@@ -1,0 +1,37 @@
+<section class="login">
+  <form (submit)="login()" [formGroup]="loginForm">
+      <div [ngClass]="[loginForm.status, 'form-group']">
+        <label for="exampleInputEmail1">Mobile Number</label>
+        <input type="tel" class="form-control"placeholder="Enter your registered mobile number" formControlName="hostId" >
+        <small id="emailHelp" class="form-text text-muted">We'll never share your mobile number with anyone else.</small>
+      </div>
+      <div [ngClass]="[loginForm.status, 'form-group']">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+      </div>
+
+      <div [ngClass]="[loginForm.status, 'form-check', 'form-check-inline']">
+          <input class="form-check-input" type="radio" formControlName="role" id="loginTeam" value="team">
+          <label class="form-check-label" for="loginTeam">Login as Team</label>
+        </div>
+      <div [ngClass]="[loginForm.status, 'form-check', 'form-check-inline']">
+        <input class="form-check-input" type="radio" formControlName="role" id="loginPlayer" value="player" >
+        <label class="form-check-label" for="loginPlayer">Login as Player</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <!-- <a (click)="signIn()" class="btn btn-primary">Sign Up</a> -->
+  </form>
+</section>
+<!-- <section *ngIf="tournamentDetailsService.host">
+  <button (click)="logout()">logout</button>
+  <h2>Hello {{tournamentDetailsService.host.hostId}}</h2>
+  <p>Your Tournaments</p>
+  <div *ngIf="!tournaments.length">
+    You have no running tournaments
+  </div>
+</section> -->
+
+<!-- <div *ngFor="let tournament of tournaments;">
+    <a routerLink="/tournament-details/{{tournament.id}}">{{tournament.name}}</a>
+</div> -->
+

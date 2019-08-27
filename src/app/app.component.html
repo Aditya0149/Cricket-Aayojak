@@ -10,9 +10,8 @@
     <li class="nav-item" ngbDropdown>
       <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profile</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="profile_dropdown">
-        <button ngbDropdownItem><span (click)="openSm(content)">Login</span></button>
-        <button ngbDropdownItem>Player Login</button>
-        <button ngbDropdownItem>Sign Up</button>
+        <a class="btn" [routerLink]="[{ outlets: { popup: ['login'] } }]" (click)="popup.openSm('Login')" ngbDropdownItem>Login</a>
+        <a class="btn" [routerLink]="[{ outlets: { popup: ['register'] } }]" (click)="popup.openSm('Sign Up')" ngbDropdownItem>Sign Up</a>
       </div>
     </li>
   </ul> 
@@ -22,19 +21,5 @@
   </div>
 </nav>
  
- <router-outlet></router-outlet>
-
- <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title">Modal title</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>One fine body&hellip;</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-    </div>
-  </ng-template>
+<router-outlet></router-outlet>
+<app-popup #popup></app-popup>

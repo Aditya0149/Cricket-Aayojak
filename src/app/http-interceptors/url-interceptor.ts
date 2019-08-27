@@ -7,7 +7,6 @@ import { BASE_URL } from "../../environments/environment";
 export class UrlInterceptor implements HttpInterceptor {
     intercept(req:HttpRequest<any>,next:HttpHandler):Observable<HttpEvent<any>> {
         let newReq = req.clone({url: this.prepareUrl(req.url)});
-        console.log("req sent = ", newReq);
         return next.handle(newReq);
     }
     private isAbsoluteUrl(url: string): boolean {

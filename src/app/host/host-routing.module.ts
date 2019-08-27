@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AuthGuard } from '../auth/auth.guard';
+import { AuthGuard } from '../guards/auth.guard';
 
 import { HostHomeComponent } from "./host-home/host-home.component"; 
 import { HostProfileComponent } from "./host-profile/host-profile.component"; 

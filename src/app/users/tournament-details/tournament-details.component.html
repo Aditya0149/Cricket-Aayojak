@@ -1,5 +1,20 @@
-<h2>This is tournament no {{tournamentDetails?.id}}</h2>
-<button (click)="currentView='fixtures'">Fixtures</button>
-<button (click)="currentView='pointsTable'">Points table</button> 
-<app-fixtures [tournamentId]="tournamentId" *ngIf="currentView == 'fixtures'" ></app-fixtures>       
-<app-points-table [tournamentId]="tournamentId" *ngIf="currentView == 'pointsTable'"></app-points-table>
+<div class="jumbotron">
+    <h2 class="text-center">{{tournamentDetails?.name}}</h2>
+    <hr class="my-4">
+    <ngb-tabset>
+        <ngb-tab title="Fixtures">
+            <ng-template ngbTabContent>
+                <app-fixtures [tournamentId]="tournamentId" ></app-fixtures>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Points Table">
+            <ng-template ngbTabContent>
+                <app-points-table [tournamentId]="tournamentId"></app-points-table>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+    <!-- <button (click)="currentView='fixtures'">Fixtures</button>
+    <button (click)="currentView='pointsTable'">Points table</button> 
+    <app-fixtures [tournamentId]="tournamentId" *ngIf="currentView == 'fixtures'" ></app-fixtures>       
+    <app-points-table [tournamentId]="tournamentId" *ngIf="currentView == 'pointsTable'"></app-points-table> -->
+</div>

@@ -1,4 +1,5 @@
-import { Component, ViewChildren, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,10 +8,12 @@ import { Component, ViewChildren, ChangeDetectorRef } from '@angular/core';
 export class AppComponent {
   title = 'cricket-ayojak';
   navList = [
-    { name : "Home", url : "home"},
     { name : "Rankings", url : "rankings"},
     { name : "Host", url : "host"}
   ];
   searchKey:string;
-
+  constructor(private modalService: NgbModal) {}
+  public openSm(content) {
+    this.modalService.open(content, { size: 'sm' });
+  }
 }

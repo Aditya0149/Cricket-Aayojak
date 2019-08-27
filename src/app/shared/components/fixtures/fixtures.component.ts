@@ -12,9 +12,9 @@ export class FixturesComponent implements OnInit {
   constructor(public tournamentDetailsService:TournamentDetailsService) { }
 
   ngOnInit() {
-    console.log(this.tournamentId);
     this.tournamentDetailsService.getFixtures(this.tournamentId).subscribe( data => {
       this.fixtures = data;
+      console.log(this.fixtures);
     });
   }
   ngAfterViewInit() {

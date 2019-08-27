@@ -1,4 +1,14 @@
-<ul>
+<div class="list-group mt-4">
+    <div href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let fixture of fixtures;">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{fixture.team1}} vs {{fixture.team2}}</h5>
+            <small>{{fixture.time}}</small>
+        </div>
+        <p class="mb-1">{{fixture.result}}</p>
+        <small><strong>venue : </strong> {{fixture.venue}}</small>
+    </div>
+</div>
+<!-- <ul>
     <li *ngFor="let fixture of fixtures;">
         {{fixture.team1}} vs {{fixture.team2}}<br/>
         {{fixture.statusDetails}}
@@ -6,4 +16,4 @@
             <button>{{fixture.status == 'not started' ? 'Add' : 'Edit'}}</button>
         </div>
     </li>
-</ul>
+</ul> -->

@@ -21,20 +21,20 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 5, teamId: '2', name:'Adali tournament 2019 no 2', playerCount: 5, entryFee : 100, reEntryFee : 150, prize1 : 2500 , prize2  : 800, startDate : '20-07-2019', endDate : '28-07-2019' }
     ];
     const fixtures: any = [
-      { id: "1", team1: "T1", team2: "T2", status: "not started", tournamentId: "1", statusDetails: "T1 won by 10 runs" },
-      { id: "2", team1: "T2", team2: "T3", status: "not started", tournamentId: "2", statusDetails: "T3 won by 10 runs" },
-      { id: "3", team1: "T4", team2: "T5", status: "not started", tournamentId: "1", statusDetails: "T41 won by 10 runs" },
-      { id: "4", team1: "T1", team2: "T2", status: "not started", tournamentId: "1", statusDetails: "T2 won by 10 runs" },
-      { id: "4", team1: "T3", team2: "T5", status: "not started", tournamentId: "3", statusDetails: "T5 won by 10 runs" },
-      { id: "5", team1: "T2", team2: "T6", status: "done", tournamentId: "3", statusDetails: "Venue : Pune staion" },
-      { id: "6", team1: "T7", team2: "T2", status: "done", tournamentId: "1", statusDetails: "Venue : Pune staion" },
-      { id: "7", team1: "T2", team2: "T5", status: "done", tournamentId: "4", statusDetails: "Venue : Pune staion" },
-      { id: "8", team1: "T2", team2: "T1", status: "done", tournamentId: "4", statusDetails: "Venue : Pune staion" },
-      { id: "9", team1: "T6", team2: "T3", status: "done", tournamentId: "1", statusDetails: "Venue : Pune staion" },
-      { id: "10", team1: "T1", team2: "T3", status: "done", tournamentId: "5", statusDetails: "Venue : Pune staion" },
-      { id: "11", team1: "T4", team2: "T1", status: "done", tournamentId: "5", statusDetails: "Venue : Pune staion" },
-      { id: "12", team1: "T1", team2: "T2", status: "done", tournamentId: "5", statusDetails: "Venue : Pune staion" },
-      { id: "13", team1: "T4", team2: "T2", status: "done", tournamentId: "1", statusDetails: "Venue : Pune staion" }
+      { id: "1", team1: "T1", team2: "T2", status: "1", tournamentId: "1", result: "T1 won by 10 runs", venue: "Pune staion", time : '30-07-2019' },
+      { id: "2", team1: "T2", team2: "T3", status: "1", tournamentId: "2", result: "T3 won by 10 runs", venue: "Hinjewadi", time : '30-07-2019' },
+      { id: "3", team1: "T4", team2: "T5", status: "1", tournamentId: "1", result: "T41 won by 10 runs", venue: "Aundh", time : '30-07-2019' },
+      { id: "4", team1: "T1", team2: "T2", status: "1", tournamentId: "1", result: "T2 won by 10 runs", venue: "Baner", time : '30-07-2019' },
+      { id: "4", team1: "T3", team2: "T5", status: "1", tournamentId: "3", result: "T5 won by 10 runs", venue: "Hadapsar", time : '30-07-2019' },
+      { id: "5", team1: "T2", team2: "T6", status: "0", tournamentId: "3", result: "Not yet started", venue: "Wakadewadi", time : '30-07-2019' },
+      { id: "6", team1: "T7", team2: "T2", status: "0", tournamentId: "1", result: "Not yet started", venue: "Nigdi", time : '30-07-2019' },
+      { id: "7", team1: "T2", team2: "T5", status: "0", tournamentId: "4", result: "Not yet started", venue: "Gokhlenagar", time : '30-07-2019' },
+      { id: "8", team1: "T2", team2: "T1", status: "0", tournamentId: "4", result: "Not yet started", venue: "Katraj", time : '30-07-2019' },
+      { id: "9", team1: "T6", team2: "T3", status: "0", tournamentId: "1", result: "Not yet started", venue: "Narhe", time : '30-07-2019' },
+      { id: "10", team1: "T1", team2: "T3", status: "0", tournamentId: "5", result: "Not yet started", venue: "Hinjewadi", time : '30-07-2019' },
+      { id: "11", team1: "T4", team2: "T1", status: "0", tournamentId: "5", result: "Not yet started", venue: "Lohgaon", time : '30-07-2019' },
+      { id: "12", team1: "T1", team2: "T2", status: "0", tournamentId: "5", result: "Not yet started", venue: "Swargate", time : '30-07-2019' },
+      { id: "13", team1: "T4", team2: "T2", status: "0", tournamentId: "1", result: "Not yet started", venue: "Kharadi", time : '30-07-2019' }
     ];
     const pointsTable: any = [
       { id: "1", team: "T1", points: "2", tournamentId: "1"},

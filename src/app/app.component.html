@@ -1,13 +1,16 @@
 <nav class="navbar navbar-dark bg-dark">
-  <ul class="navbar-nav top_nav"> 
-    <li class="nav-item" *ngFor="let link of navList;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+  <ul class="navbar-nav top_nav">
+    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a class="nav-link" routerLink="home" >Home</a>
+    </li> 
+    <li class="nav-item" *ngFor="let link of navList;" routerLinkActive="active">
       <a class="nav-link" [routerLink]="link.url"  >{{link.name}}</a>
-     </li>
+    </li>
     
     <li class="nav-item" ngbDropdown>
       <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profile</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="profile_dropdown">
-        <button ngbDropdownItem>Team Login</button>
+        <button ngbDropdownItem><span (click)="openSm(content)">Login</span></button>
         <button ngbDropdownItem>Player Login</button>
         <button ngbDropdownItem>Sign Up</button>
       </div>
@@ -19,28 +22,19 @@
   </div>
 </nav>
  
- <router-outlet></router-outlet>      
- 
+ <router-outlet></router-outlet>
 
-<!-- <section class="login" *ngIf="!tournamentDetailsService.host">
-  <form (submit)="hostLogin()" [formGroup]="loginForm">
-      Host ID : <input type="text" formControlName="hostId" ><br/>
-      Password : <input type="text" formControlName="password" >
-      <button type="submit">Login as host</button>
-  </form>
-  <br/><br/>
-</section>
-<section *ngIf="tournamentDetailsService.host">
-  <button (click)="logout()">logout</button>
-  <h2>Hello {{tournamentDetailsService.host.hostId}}</h2>
-  <p>Your Tournaments</p>
-  <div *ngIf="!tournaments.length">
-    You have no running tournaments
-  </div>
-</section> -->
-
-<!-- <div *ngFor="let tournament of tournaments;">
-    <a routerLink="/tournament-details/{{tournament.id}}">{{tournament.name}}</a>
-</div> -->
-
-
+ <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>

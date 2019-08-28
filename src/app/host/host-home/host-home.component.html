@@ -1,3 +1,5 @@
 <a routerLink="/host" >Profile</a><br/>
 <a routerLink="./tournament" >Host Tournament</a>
+<input type="text" (keyup)="tournamentDetailsService.host.next(val.value)" #val>
+{{tournamentDetailsService.host | async}}
 <router-outlet></router-outlet>

@@ -25,9 +25,7 @@ export class TournamentDetailsComponent implements OnInit {
     this.route.data
       .subscribe( (resolvedData) => {
         this.tournamentDetails = resolvedData.details;
-        this.tournamentId = this.tournamentDetails.id;
-        console.log(this.tournamentDetails);
-      });
+        this.tournamentId = this.tournamentDetails.id;      });
    }
 
 }

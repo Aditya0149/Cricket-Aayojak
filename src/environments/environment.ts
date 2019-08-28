@@ -5,7 +5,7 @@
 export const environment = {
   production: false
 };
-// Barakya base add url here.
+// Barakya - add base url here.
 export const BASE_URL = "api";
 
 /*

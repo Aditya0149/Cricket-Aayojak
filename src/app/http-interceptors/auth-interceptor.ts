@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
     intercept(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>> {
-        let authReq = req.clone({
-            headers:new HttpHeaders({
-                'Content-Type':  'application/json'
-            })
+        const authReq = req.clone({
+            setHeaders: { 
+                'Content-Type':  'application/json',
+                'Authorization': 'my-auth-token'
+             }
         })
-        console.log("authReq ",authReq);
-        return next.handle(req);    
+        return next.handle(authReq);
     }
 }

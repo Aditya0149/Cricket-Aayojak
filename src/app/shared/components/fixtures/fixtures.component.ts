@@ -14,7 +14,6 @@ export class FixturesComponent implements OnInit {
   ngOnInit() {
     this.tournamentDetailsService.getFixtures(this.tournamentId).subscribe( data => {
       this.fixtures = data;
-      console.log(this.fixtures);
     });
   }
   ngAfterViewInit() {

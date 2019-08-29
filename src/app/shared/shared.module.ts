@@ -10,12 +10,14 @@ import { RouterModule } from '@angular/router';
 import { FixturesComponent } from './components/fixtures/fixtures.component';
 import { PointsTableComponent } from './components/points-table/points-table.component';
 import { TournamentPaneComponent } from './components/tournament-pane/tournament-pane.component';
+import { PopupComponent } from '../popup/popup.component';
 
 @NgModule({
   declarations: [
     FixturesComponent,
     PointsTableComponent,
-    TournamentPaneComponent
+    TournamentPaneComponent,
+    PopupComponent
   ],
   imports: [
     CommonModule,

@@ -1,14 +1,14 @@
 <ng-template #content let-modal>
     <div class="modal-header">
-        <h4 class="modal-title">{{title}}</h4>
-        <button type="button" class="close" aria-label="Close" (click)="closePopup()">
+        <h4 class="modal-title">{{popupService.title}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="popupService.closePopup()">
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <router-outlet name="popup"></router-outlet>
+        <ng-content></ng-content>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="closePopup()">Close</button>
+        <button type="button" class="btn btn-light" (click)="popupService.closePopup()">Close</button>
     </div>
 </ng-template>

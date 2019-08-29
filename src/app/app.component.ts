@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './providers/auth.service';
+import { PopupService } from './popup/popup.service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +14,11 @@ export class AppComponent {
     { name : "Host", url : "host"}
   ];
   searchKey:string;
-  constructor() { }
+  constructor(
+    public authService:AuthService,
+    public popupService:PopupService
+  ) { }
+  ngOnInit(){
+    this.authService.isLoggedIn = localStorage.getItem("isLoggedIn");
+  }
 }

@@ -7,12 +7,15 @@
       <a class="nav-link" [routerLink]="link.url"  >{{link.name}}</a>
     </li>
     
-    <li class="nav-item" ngbDropdown>
+    <li class="nav-item" ngbDropdown *ngIf="!authService.isLoggedIn">
       <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profile</button>
       <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="profile_dropdown">
-        <a class="btn" [routerLink]="[{ outlets: { popup: ['login'] } }]" (click)="popup.openSm('Login')" ngbDropdownItem>Login</a>
-        <a class="btn" [routerLink]="[{ outlets: { popup: ['register'] } }]" (click)="popup.openSm('Sign Up')" ngbDropdownItem>Sign Up</a>
+        <a class="btn" [routerLink]="[{ outlets: { popup: ['login'] } }]" ngbDropdownItem>Login</a>
+        <a class="btn" [routerLink]="[{ outlets: { popup: ['register'] } }]" ngbDropdownItem>Sign Up</a>
       </div>
+    </li>
+    <li class="nav-item" ngbDropdown *ngIf="authService.isLoggedIn">
+      <button class="nav-link btn" (click)="authService.logout()" >Logout</button>
     </li>
   </ul> 
   <div class="form-inline has-search col-md-10 col-sm-10 mx-auto mb-2">
@@ -21,5 +24,5 @@
   </div>
 </nav>
  
-<router-outlet></router-outlet>
-<app-popup #popup></app-popup>
+<router-outlet #routerOutlet="outlet"></router-outlet>
+<router-outlet name="popup"></router-outlet>

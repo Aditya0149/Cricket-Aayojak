@@ -1,6 +1,7 @@
 import { Component, ViewChild, TemplateRef } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { PopupService } from './popup.service';
 
 @Component({
   selector: 'app-popup',
@@ -8,31 +9,20 @@ import { Router } from '@angular/router';
   styles: []
 })
 export class PopupComponent {
-  public modalRef: NgbModalRef;
-  public title: string;
   @ViewChild('content',{static:false}) content:TemplateRef<any>;
   constructor(
     public modalService: NgbModal, 
-    private router:Router
+    private router:Router,
+    public popupService:PopupService
   ) {  }
   public openSm(title:string) {
-    console.log(title);
-    this.title = title;
-    this.modalRef = this.modalService.open(this.content);
-  }
-  send() {
-    setTimeout(() => {
-      this.closePopup();
-    }, 1000);
-  }
-
-  cancel() {
-    this.closePopup();
+    this.popupService.title = title;
+    this.popupService.modalRef = this.modalService.open(this.content);
   }
 
   closePopup() {
     this.router.navigate([{ outlets: { popup: null }}]);
-    this.modalRef.close();
+    this.popupService.modalRef.close();
   }
 
 

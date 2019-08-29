@@ -20,8 +20,7 @@ import { PopupComponent } from './popup/popup.component';
     AppComponent,
     ScheduleTournamentComponent,
     EnterMatchResultComponent,
-    ErrorComponent,
-    PopupComponent
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -15,10 +15,13 @@ export class PopupComponent {
     private router:Router,
     public popupService:PopupService
   ) {  }
-  public openSm(title:string) {
-    this.popupService.title = title;
-    this.popupService.modalRef = this.modalService.open(this.content);
+  ngAfterViewInit(){
+    this.popupService.modalContent = this.content;
   }
+  // public openSm(title:string) {
+  //   this.popupService.title = title;
+  //   this.popupService.modalRef = this.modalService.open(this.content);
+  // }
 
   closePopup() {
     this.router.navigate([{ outlets: { popup: null }}]);

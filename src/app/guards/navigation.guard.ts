@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanDeactivate } from '@angular/router';
+import { CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
 
 export interface CanComponentDeactivate {
@@ -11,6 +11,6 @@ export interface CanComponentDeactivate {
 })
 export class NavigationGuard implements CanDeactivate<CanComponentDeactivate> {
   canDeactivate(component: CanComponentDeactivate){
-    return component == null ? true : component.canDeactivate();
+    return component.canDeactivate();
   }
 }

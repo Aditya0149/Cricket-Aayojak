@@ -13,7 +13,6 @@ import { ErrorComponent } from './views/error/error.component';
 import { httpInterceptorProviders } from "./http-interceptors/index";
 import { HostModule } from './host/host.module';
 import { UsersModule } from './users/users.module';
-import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [

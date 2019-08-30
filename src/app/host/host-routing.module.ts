@@ -6,6 +6,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { HostHomeComponent } from "./host-home/host-home.component"; 
 import { HostProfileComponent } from "./host-profile/host-profile.component"; 
 import { TournamentComponent } from "./tournament/tournament.component"; 
+import { HostProfileResolverService } from './host-profile/host-profile-resolver.service';
 
 const routes: Routes = [
   {
@@ -18,8 +19,11 @@ const routes: Routes = [
         canActivateChild: [AuthGuard],
         children: [
           {
-            path:'',
-            component:HostProfileComponent
+            path:':id',
+            component:HostProfileComponent,
+            resolve: {
+              details: HostProfileResolverService
+            }
           },
           {
             path:'tournament',

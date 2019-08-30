@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 import { FixturesComponent } from './components/fixtures/fixtures.component';
 import { PointsTableComponent } from './components/points-table/points-table.component';
 import { TournamentPaneComponent } from './components/tournament-pane/tournament-pane.component';
-import { PopupComponent } from '../popup/popup.component';
+import { PopupComponent } from './components/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { PopupComponent } from '../popup/popup.component';
     NgbModule,
     FixturesComponent,
     PointsTableComponent,
-    TournamentPaneComponent
+    TournamentPaneComponent,
+    PopupComponent
   ]
 })
 export class SharedModule { }

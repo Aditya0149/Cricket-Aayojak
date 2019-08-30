@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class AuthService {
   public isLoggedIn:any;
   public redirectUrl:any;
-  public fakeUser:User = {hostId:'',password:'', role:''};
+  public fakeUser:User = {id:'',password:'', role:''};
+  public user:any;
   constructor(
     private http:HttpClient,
     private router:Router
@@ -20,7 +21,7 @@ export class AuthService {
     console.log(localStorage.getItem("isLoggedIn"));
   }
   public login(user:User):Observable<User> {
-    return this.http.get<User[]>(`teams/?phone=${user.hostId}`).pipe(
+    return this.http.get<User[]>(`users/?id=${user.id}`).pipe(
       switchMap( resp => {
         return of ( resp[0] ? resp[0] : this.fakeUser );
       })

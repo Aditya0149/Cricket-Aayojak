@@ -8,10 +8,16 @@ export class InMemoryDataService implements InMemoryDbService {
   constructor() { }
   createDb() {
     let teams: any = [
-      {id:1, name:'Team Malewad A', password: 'a', phone: '1111111111', address:'Malewad'},
-      {id:2, name:'Team Adali', password: 'b', phone: '2222222222', address:'Adali'},
-      {id:3, name:'Team Bhedshi', password: 'c', phone: '3333333333', address:'Bhedshi'},
-      {id:4, name:'Team Malewad B', password: 'd', phone: '4444444444', address:'Malewad'}
+      { id:'1111111111', name:'Team Malewad A', password: 'a', phone: '1111111111', address:'Malewad'},
+      { id:'2222222222', name:'Team Adali', password: 'b', phone: '2222222222', address:'Adali'},
+      { id:'3333333333', name:'Team Bhedshi', password: 'c', phone: '3333333333', address:'Bhedshi'},
+      { id:'4444444444', name:'Team Malewad B', password: 'd', phone: '4444444444', address:'Malewad'}
+    ];
+    let users: any = [
+      { id:'1111111111', password: 'a', role:"team"},
+      { id:'2222222222', password: 'b', role:"team"},
+      { id:'3333333333', password: 'c', role:"team"},
+      { id:'4444444444', password: 'd', role:"team"}
     ];
     const tournaments: any = [
       { id: 1, teamId: '1', name:'Malewad A tournament 2019', playerCount: 5, entryFee : 100, reEntryFee : 150, prize1 : 1000, prize2 : 750, startDate : '22-07-2019', endDate : '30-07-2019'},
@@ -62,7 +68,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id : 2, score: "{runs:75,wickets:2,overs:5.0,batsmanStrike:'Bhedshitlo Gandel-30(15)',batsmanNonStrike:'Bhedshitlo Barako-20(12)',bowler:'Aditya-10(6)'}", target: ''},
       { id : 2, score: "{runs:50,wickets:4,overs:4.0,batsmanStrike:'Aditya-20(5)',batsmanNonStrike:'Sitaram-20(4)',bowler:'Barako-20(6)'}", target: ''}
     ];
-    return { tournaments, fixtures, pointsTable, teams, liveMatches, liveScores };
+    return { tournaments, fixtures, pointsTable, teams, liveMatches, liveScores, users };
   }
 
 
@@ -72,7 +78,7 @@ export class InMemoryDataService implements InMemoryDbService {
   // the method below returns the initial number (11).
   // if the heroes array is not empty, the method below returns the highest
   // hero id + 1.
-  genId(tournaments: any): number {
-    return tournaments.length > 0 ? Math.max(...tournaments.map(tournament => tournament.id)) + 1 : 1;
-  }
+  // genId(tournaments: any): number {
+  //   return tournaments.length > 0 ? Math.max(...tournaments.map(tournament => tournament.id)) + 1 : 1;
+  // }
 }

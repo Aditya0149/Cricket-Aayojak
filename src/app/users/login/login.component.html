@@ -6,7 +6,7 @@
         <form (submit)="login()" [formGroup]="loginForm">
             <div [ngClass]="[loginForm.status, 'form-group']">
               <label for="exampleInputEmail1">Mobile Number</label>
-              <input type="tel" class="form-control"placeholder="Enter your registered mobile number" formControlName="hostId" >
+              <input type="tel" class="form-control"placeholder="Enter your registered mobile number" formControlName="id" >
               <small id="emailHelp" class="form-text text-muted">We'll never share your mobile number with anyone else.</small>
             </div>
             <div [ngClass]="[loginForm.status, 'form-group']">

@@ -1,5 +1,5 @@
 export interface User {
-    hostId: string,
+    id: string,
     password: string,
     role: string
 }

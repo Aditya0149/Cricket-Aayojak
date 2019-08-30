@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './providers/auth.service';
-import { PopupService } from './popup/popup.service';
+import { PopupService } from './shared/components/popup/popup.service';
 
 @Component({
   selector: 'app-root',

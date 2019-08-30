@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router'
 import { AuthService } from "../../providers/auth.service";
-import { PopupService } from "../../popup/popup.service";
+import { PopupService } from "../../shared/components/popup/popup.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   public title:string = "Login"
   public error:string;
   public loginForm:any = this.fb.group({
-    hostId: ['',Validators.required],
+    id: ['',Validators.required],
     password: ['',Validators.required],
     role: ['team',Validators.required]
   })
@@ -26,6 +26,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  ngAfterViewInit(){
+    this.popupService.openPopup("Login");
+  }
 
   public login = () => {
     let user = this.loginForm.value;
@@ -36,7 +39,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("isLoggedIn","true");
           this.popupService.closePopup();
           let redirecUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/host';
-          this.router.navigateByUrl(redirecUrl);
+          this.router.navigateByUrl(`${redirecUrl}/${resp.id}`);
         } else {
           this.router.navigate([{ outlets: { popup: ['login'] } }]);
           this.error = "Invalid credentials";
@@ -48,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate([{ outlets: { popup: ['../'] } }]);
   }
   canDeactivate(): Observable<boolean> | boolean {
-    //if (this.authService.isLoggedIn) this.router.navigate([{ outlets: { popup: null }}]);
+    if (this.popupService.popupClosed) return true;
     return this.authService.isLoggedIn;
   }
 

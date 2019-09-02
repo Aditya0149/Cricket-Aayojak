@@ -19,6 +19,6 @@ export class AppComponent {
     public popupService:PopupService
   ) { }
   ngOnInit(){
-    this.authService.isLoggedIn = localStorage.getItem("isLoggedIn");
+    this.authService.user = localStorage.getItem("user");
   }
 }

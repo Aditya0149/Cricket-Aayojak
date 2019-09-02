@@ -21,7 +21,6 @@ import { PopupComponent } from './components/popup/popup.component';
   ],
   imports: [
     CommonModule,
-    BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -30,7 +29,6 @@ import { PopupComponent } from './components/popup/popup.component';
   ],
   exports: [
     CommonModule,
-    BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

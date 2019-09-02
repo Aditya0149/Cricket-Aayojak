@@ -9,16 +9,15 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  public isLoggedIn:any;
+  public user:any = undefined;
   public redirectUrl:any;
   public fakeUser:User = {id:'',password:'', role:''};
-  public user:any;
   constructor(
     private http:HttpClient,
     private router:Router
   ) { }
   ngOnInit(){
-    console.log(localStorage.getItem("isLoggedIn"));
+    this.user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : undefined;
   }
   public login(user:User):Observable<User> {
     return this.http.get<User[]>(`users/?id=${user.id}`).pipe(
@@ -28,8 +27,8 @@ export class AuthService {
     )
   }
   public logout(){
-    this.isLoggedIn = false;
+    this.user = undefined;
     this.router.navigate(['home']);
-    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("user");
   }
 }

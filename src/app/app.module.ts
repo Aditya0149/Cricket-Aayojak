@@ -11,15 +11,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './views/error/error.component';
 import { httpInterceptorProviders } from "./http-interceptors/index";
-import { HostModule } from './host/host.module';
 import { UsersModule } from './users/users.module';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { HostNavDirective } from './directives/host-nav.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScheduleTournamentComponent,
     EnterMatchResultComponent,
-    ErrorComponent
+    ErrorComponent,
+    PageNotFoundComponent,
+    HostNavDirective
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,6 @@ import { UsersModule } from './users/users.module';
     ),
     NgbModule,
     UsersModule,
-    HostModule,
     AppRoutingModule,
   ],
   providers: [

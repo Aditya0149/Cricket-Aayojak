@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-//import { LoginComponent } from './popups/login/login.component';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-//  { path: '**', component: ErrorComponent }
+  {
+    path: 'host',
+    loadChildren: () => import("./host/host.module").then ( mod => mod.HostModule )
+  },
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({

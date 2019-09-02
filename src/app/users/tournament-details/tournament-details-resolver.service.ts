@@ -21,7 +21,7 @@ export class TournamentDetailsResolverService implements Resolve<any> {
         if(details && id) {
           return of(details);
         } else {
-          this.router.navigate(['/home']);
+          this.router.navigate(['**']);
           return EMPTY;
         }
       })

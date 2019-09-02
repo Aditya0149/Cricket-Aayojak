@@ -10,7 +10,7 @@ import { HostProfileResolverService } from './host-profile/host-profile-resolver
 
 const routes: Routes = [
   {
-    path:"host", 
+    path:'', 
     component:HostHomeComponent,
     canActivate: [AuthGuard],
     children: [
@@ -19,11 +19,8 @@ const routes: Routes = [
         canActivateChild: [AuthGuard],
         children: [
           {
-            path:':id',
-            component:HostProfileComponent,
-            resolve: {
-              details: HostProfileResolverService
-            }
+            path:'',
+            component:HostProfileComponent
           },
           {
             path:'tournament',

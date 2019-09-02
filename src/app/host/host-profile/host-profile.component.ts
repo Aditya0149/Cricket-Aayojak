@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HostService } from '../../providers/host.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/providers/auth.service';
 
 @Component({
   selector: 'app-host-profile',
@@ -9,13 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HostProfileComponent implements OnInit {
   public profile:any;
-  constructor(private hostService:HostService, private route:ActivatedRoute) { }
+  constructor(private hostService:HostService, private route:ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit() {
-    this.route.data.
-      subscribe( data => {
-        this.profile = data.details;
-      });
+    let profile = localStorage.getItem("user");
+    if (profile) {
+      this.profile = JSON.parse(profile);
+    } else {
+      this.hostService.getTeamProfile(this.authService.user.id).subscribe(
+        data => {
+          this.profile = data;
+          this.authService.user = data;
+          localStorage.setItem("user",JSON.stringify(data));
+        }
+      )
+    }
   }
-
 }

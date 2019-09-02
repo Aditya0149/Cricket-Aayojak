@@ -35,11 +35,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(user).subscribe(
       (resp) => {
         if (user.password == resp.password) {
-          this.authService.isLoggedIn = true;
-          localStorage.setItem("isLoggedIn","true");
+          this.authService.user = { ...this.authService.fakeUser, id: resp['id'] };
           this.popupService.closePopup();
           let redirecUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/host';
-          this.router.navigateByUrl(`${redirecUrl}/${resp.id}`);
+          this.router.navigateByUrl(`${redirecUrl}`);
         } else {
           this.router.navigate([{ outlets: { popup: ['login'] } }]);
           this.error = "Invalid credentials";
@@ -52,7 +51,7 @@ export class LoginComponent implements OnInit {
   }
   canDeactivate(): Observable<boolean> | boolean {
     if (this.popupService.popupClosed) return true;
-    return this.authService.isLoggedIn;
+    return this.authService.user;
   }
 
 }

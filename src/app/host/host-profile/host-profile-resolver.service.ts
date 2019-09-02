@@ -16,7 +16,8 @@ import { HostService } from '../../providers/host.service';
 export class HostProfileResolverService implements Resolve<any>  {
   constructor(private hostService:HostService, private router:Router) { }
   resolve(route:ActivatedRouteSnapshot,state:RouterStateSnapshot){
-    let id = route.paramMap.get('id');
+    let id = route.paramMap.get('id') || localStorage.getItem("user")['id'];
+    debugger;
     return this.hostService.getTeamProfile(id).pipe(
       mergeMap(details => {
         if(details && id) {

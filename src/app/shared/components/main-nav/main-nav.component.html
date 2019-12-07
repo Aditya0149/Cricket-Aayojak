@@ -1,0 +1,25 @@
+<nav class="navbar navbar-dark bg-dark">
+    <ul class="navbar-nav top_nav">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="home" >Home</a>
+      </li> 
+      <li class="nav-item" *ngFor="let link of navList;" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="link.url"  >{{link.name}}</a>
+      </li>
+      
+      <li class="nav-item" ngbDropdown *ngIf="!authService.user">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profile</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="profile_dropdown">
+          <a class="btn" [routerLink]="[{ outlets: { popup: ['login'] } }]" ngbDropdownItem>Login</a>
+          <a class="btn" [routerLink]="[{ outlets: { popup: ['register'] } }]" ngbDropdownItem>Sign Up</a>
+        </div>
+      </li>
+      <li class="nav-item" ngbDropdown *ngIf="authService.user">
+        <button class="nav-link btn" (click)="authService.logout()" >Logout</button>
+      </li>
+    </ul> 
+    <div class="form-inline has-search col-md-10 col-sm-10 mx-auto mb-2">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input class="form-control col-12" [(ngModel)]="searchKey" type="search" placeholder="Search a team or a player" aria-label="Search">
+    </div>
+  </nav>

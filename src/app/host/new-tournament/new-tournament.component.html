@@ -1,0 +1,35 @@
+<form (submit)="hostNewTournament()" [formGroup]="tournamentForm" class="card p-4">
+    <div [ngClass]="[tournamentForm.status, 'form-group']">
+        <label for="name">Name</label>
+        <input type="text" class="form-control"placeholder="Give a name for tournament" formControlName="name" >
+    </div>
+    <div [ngClass]="[tournamentForm.status, 'form-group']">
+        <label for="name">Player Count</label>
+        <input type="number" [max]="11" class="form-control" formControlName="playerCount" >
+    </div>
+    <div [ngClass]="[tournamentForm.status, 'form-group']">
+        <label for="name">entryFee</label>
+        <input type="number" class="form-control" formControlName="entryFee" >
+    </div>
+    <div [ngClass]="[tournamentForm.status, 'form-group']">
+        <label for="name">Re-entry Fee</label>
+        <input type="number" class="form-control" formControlName="reEntryFee" >
+    </div>
+    <div [ngClass]="[tournamentForm.status, 'form-group']">
+        <label for="name">Prize 1 amount</label>
+        <input type="number" class="form-control" formControlName="prize1" >
+    </div>
+    <div [ngClass]="[tournamentForm.status, 'form-group']">
+        <label for="name">Prize 2 amount</label>
+        <input type="number" class="form-control" formControlName="prize2" >
+    </div>
+    <div [ngClass]="[tournamentForm.status, 'form-group']">
+        <label for="name">Start Date</label>
+        <!-- <input type="text" class="form-control" formControlName="startDate" ngbDatepicker #datepicker="ngbDatepicker"> -->
+    </div>
+    <div [ngClass]="[tournamentForm.status, 'form-group']">
+        <label for="name">End Date</label>
+        <input type="text" class="form-control" formControlName="endDate" >
+    </div>
+    <button class="btn btn-primary">Send Join Requrest</button>
+</form>

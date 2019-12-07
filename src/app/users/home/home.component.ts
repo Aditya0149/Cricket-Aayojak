@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     hostId:['',Validators.required],
     password:['',Validators.required]
   });
-  constructor(private http: HttpClient, public tournamentDetailsService:TournamentDetailsService, private fb:FormBuilder) { }
+  constructor(private http: HttpClient, public tournamentDetailsService:TournamentDetailsService, private fb:FormBuilder, public tService:TournamentDetailsService) { }
 
   ngOnInit() {
     this.getTournaments();

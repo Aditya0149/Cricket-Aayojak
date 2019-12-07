@@ -8,7 +8,7 @@ import { TournamentDetailsComponent } from './tournament-details/tournament-deta
 import { RankingsComponent } from './rankings/rankings.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { TournamentDetailsService } from '../providers/tournament-details.service';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -20,6 +20,9 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     SharedModule,
     UsersRoutingModule
+  ],
+  providers: [
+    TournamentDetailsService
   ]
 })
 export class UsersModule { }

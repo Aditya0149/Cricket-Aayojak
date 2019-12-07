@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
 export class ResponseInterceptor implements HttpInterceptor {
     constructor(private router:Router) {}
     intercept(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>> {
-        console.log("Request sent ",req);
+//        console.log("Request sent ",req);
         return next.handle(req).pipe(
             retry(3),
             tap( resp => {
-              console.log("Response received : ",resp);
+//              console.log("Response received : ",resp);
             }),
             catchError(this.handleError)
         );  

@@ -5,8 +5,8 @@ import { AuthGuard } from '../guards/auth.guard';
 
 import { HostHomeComponent } from "./host-home/host-home.component"; 
 import { HostProfileComponent } from "./host-profile/host-profile.component"; 
-import { TournamentComponent } from "./tournament/tournament.component"; 
-import { HostProfileResolverService } from './host-profile/host-profile-resolver.service';
+import { HostDashboadComponent } from './host-dashboad/host-dashboad.component';
+import { NewTournamentComponent } from './new-tournament/new-tournament.component';
 
 const routes: Routes = [
   {
@@ -20,11 +20,15 @@ const routes: Routes = [
         children: [
           {
             path:'',
+            component:HostDashboadComponent
+          },
+          {
+            path:'profile',
             component:HostProfileComponent
           },
           {
-            path:'tournament',
-            component:TournamentComponent
+            path:'new-tournament',
+            component:NewTournamentComponent
           }
         ]
       }

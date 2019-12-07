@@ -16,7 +16,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       return this.checkLogin(state.url);
   }
   checkLogin(url: string): boolean {
-    if ( this.authService.user ) return true; 
+    let LSUser = localStorage.getItem('user');
+    if ( this.authService.user || LSUser ) return true; 
     this.authService.redirectUrl = url;
     this.router.navigate([{ outlets: { popup: ['login'] } }]);
     return false;

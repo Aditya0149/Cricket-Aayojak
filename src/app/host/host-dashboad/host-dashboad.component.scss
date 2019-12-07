@@ -1,0 +1,12 @@
+.box {
+    display: flex;
+    height: 4rem;
+    border: 1px ridge;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: darkslategrey;
+    &:hover {
+        opacity: 0.8;
+    }
+}

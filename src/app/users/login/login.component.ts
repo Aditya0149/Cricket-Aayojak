@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
           this.popupService.closePopup();
           let redirecUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/host';
           this.router.navigateByUrl(`${redirecUrl}`);
+          localStorage.setItem("user",JSON.stringify(resp));
         } else {
           this.router.navigate([{ outlets: { popup: ['login'] } }]);
           this.error = "Invalid credentials";

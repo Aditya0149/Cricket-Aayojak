@@ -14,6 +14,8 @@ import { httpInterceptorProviders } from "./http-interceptors/index";
 import { UsersModule } from './users/users.module';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { HostNavDirective } from './directives/host-nav.directive';
+import { MainNavComponent } from './shared/components/main-nav/main-nav.component';
+import { TournamentDetailsService } from './providers/tournament-details.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { HostNavDirective } from './directives/host-nav.directive';
     EnterMatchResultComponent,
     ErrorComponent,
     PageNotFoundComponent,
-    HostNavDirective
+    HostNavDirective,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { HostNavDirective } from './directives/host-nav.directive';
     AppRoutingModule,
   ],
   providers: [
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    TournamentDetailsService
   ],
   bootstrap: [AppComponent]
 })

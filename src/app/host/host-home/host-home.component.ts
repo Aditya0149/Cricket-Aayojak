@@ -7,7 +7,7 @@ import { TournamentDetailsService } from '../../providers/tournament-details.ser
 })
 export class HostHomeComponent implements OnInit {
 
-  constructor(public tournamentDetailsService:TournamentDetailsService) { }
+  constructor(public tournamentDetailsService:TournamentDetailsService, public tService:TournamentDetailsService) { }
 
   ngOnInit() {
   }

@@ -8,10 +8,10 @@ export class InMemoryDataService implements InMemoryDbService {
   constructor() { }
   createDb() {
     let teams: any = [
-      { id:'1111111111', name:'Team Malewad A', password: 'a', phone: '1111111111', address:'Malewad'},
-      { id:'2222222222', name:'Team Adali', password: 'b', phone: '2222222222', address:'Adali'},
-      { id:'3333333333', name:'Team Bhedshi', password: 'c', phone: '3333333333', address:'Bhedshi'},
-      { id:'4444444444', name:'Team Malewad B', password: 'd', phone: '4444444444', address:'Malewad'}
+      { id:'1111111111', name:'Team Malewad A', phone: '1111111111', address:'Malewad', captain:'captainA'},
+      { id:'2222222222', name:'Team Adali', phone: '2222222222', address:'Adali', captain:'captainB'},
+      { id:'3333333333', name:'Team Bhedshi', phone: '3333333333', address:'Bhedshi', captain:'captainC'},
+      { id:'4444444444', name:'Team Malewad B', phone: '4444444444', address:'Malewad', captain:'captainD'}
     ];
     let users: any = [
       { id:'1111111111', password: 'a', role:"team"},

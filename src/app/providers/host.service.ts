@@ -3,10 +3,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn:'root'
 })
 export class HostService {
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient) {
+    console.log('host');
+  }
   public getTeamProfile(id:string):Observable<any>{
     return this.http.get<Object[]>(`teams/${id}`);
   }

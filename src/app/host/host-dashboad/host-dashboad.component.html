@@ -1,0 +1,5 @@
+<div class="container">
+    <div class="row">
+        <a class="btn btn-secondary col-6 box" *ngFor="let d of dashboardLinks" [routerLink]="d.url">{{d.name}}</a>
+    </div>
+</div>

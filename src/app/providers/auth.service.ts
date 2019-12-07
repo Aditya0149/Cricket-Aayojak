@@ -6,7 +6,7 @@ import { switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn:'root'
 })
 export class AuthService {
   public user:any = undefined;
@@ -15,7 +15,9 @@ export class AuthService {
   constructor(
     private http:HttpClient,
     private router:Router
-  ) { }
+  ) { 
+    console.log('Auth service const called');
+  }
   ngOnInit(){
     this.user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : undefined;
   }

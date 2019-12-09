@@ -13,17 +13,17 @@ export class HostProfileComponent implements OnInit {
   constructor(private hostService:HostService, private route:ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit() {
-    let profile = localStorage.getItem("user");
-    if (profile) {
-      this.profile = JSON.parse(profile);
-    } else {
-      this.hostService.getTeamProfile(this.authService.user.id).subscribe(
-        data => {
-          this.profile = data;
-          this.authService.user = data;
-          localStorage.setItem("user",JSON.stringify(data));
-        }
-      )
-    }
+    this.profile = this.authService.user;
+    // if (profile) {
+    //   this.profile = JSON.parse(profile);
+    // } else {
+    //   this.hostService.getTeamProfile(this.authService.user.id).subscribe(
+    //     data => {
+    //       this.profile = data;
+    //       this.authService.user = data;
+    //       localStorage.setItem("user",JSON.stringify(data));
+    //     }
+    //   )
+    // }
   }
 }

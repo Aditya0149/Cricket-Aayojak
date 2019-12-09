@@ -1,35 +1,55 @@
 <form (submit)="hostNewTournament()" [formGroup]="tournamentForm" class="card p-4">
     <div [ngClass]="[tournamentForm.status, 'form-group']">
-        <label for="name">Name</label>
+        <label for="name" class="ca_form_lable">Name</label>
         <input type="text" class="form-control"placeholder="Give a name for tournament" formControlName="name" >
     </div>
     <div [ngClass]="[tournamentForm.status, 'form-group']">
-        <label for="name">Player Count</label>
+        <label for="name" class="ca_form_lable">Player Count</label>
         <input type="number" [max]="11" class="form-control" formControlName="playerCount" >
     </div>
     <div [ngClass]="[tournamentForm.status, 'form-group']">
-        <label for="name">entryFee</label>
+        <label for="name" class="ca_form_lable">entryFee</label>
         <input type="number" class="form-control" formControlName="entryFee" >
     </div>
     <div [ngClass]="[tournamentForm.status, 'form-group']">
-        <label for="name">Re-entry Fee</label>
+        <label for="name" class="ca_form_lable">Re-entry Fee</label>
         <input type="number" class="form-control" formControlName="reEntryFee" >
     </div>
     <div [ngClass]="[tournamentForm.status, 'form-group']">
-        <label for="name">Prize 1 amount</label>
-        <input type="number" class="form-control" formControlName="prize1" >
+        <label for="name" class="ca_form_lable">Prize 1 amount</label>
+        <input class="form-control" formControlName="prize1" >
     </div>
     <div [ngClass]="[tournamentForm.status, 'form-group']">
-        <label for="name">Prize 2 amount</label>
-        <input type="number" class="form-control" formControlName="prize2" >
+        <label for="name" class="ca_form_lable">Prize 2 amount</label>
+        <input class="form-control" formControlName="prize2" >
     </div>
     <div [ngClass]="[tournamentForm.status, 'form-group']">
-        <label for="name">Start Date</label>
-        <!-- <input type="text" class="form-control" formControlName="startDate" ngbDatepicker #datepicker="ngbDatepicker"> -->
+        <label for="name" class="ca_form_lable">Start Date</label>
+        <input type="text" 
+            class="form-control" 
+            formControlName="startDate" 
+            ngbDatepicker 
+            #sDate="ngbDatepicker"
+            (click)="sDate.toggle()" 
+            (dateSelect)="sDate.value = $event"
+            [minDate]="minDate"
+            readonly >
     </div>
     <div [ngClass]="[tournamentForm.status, 'form-group']">
-        <label for="name">End Date</label>
-        <input type="text" class="form-control" formControlName="endDate" >
+        <label for="name" class="ca_form_lable">End Date</label>
+        <input type="text" 
+        class="form-control" 
+        formControlName="endDate" 
+        ngbDatepicker 
+        #eDate="ngbDatepicker"
+        (click)="eDate.toggle()" 
+        (dateSelect)="eDate.value = $event"
+        [minDate]="minDate"
+        readonly >
+    </div>
+    <div [ngClass]="[tournamentForm.status, 'form-group']">
+        <label for="name" class="ca_form_lable">Time</label>
+        <ngb-timepicker formControlName="time" [meridian]="meridian" required></ngb-timepicker>
     </div>
     <button class="btn btn-primary">Send Join Requrest</button>
 </form>

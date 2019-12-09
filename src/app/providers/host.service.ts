@@ -6,9 +6,7 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs';
   providedIn:'root'
 })
 export class HostService {
-  constructor(private http:HttpClient) {
-    console.log('host');
-  }
+  constructor(private http:HttpClient) {}
   public getTeamProfile(id:string):Observable<any>{
     return this.http.get<Object[]>(`teams/${id}`);
   }

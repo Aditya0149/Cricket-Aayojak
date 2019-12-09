@@ -7,6 +7,7 @@ import { HostHomeComponent } from "./host-home/host-home.component";
 import { HostProfileComponent } from "./host-profile/host-profile.component"; 
 import { HostDashboadComponent } from './host-dashboad/host-dashboad.component';
 import { NewTournamentComponent } from './new-tournament/new-tournament.component';
+import { MyTournamentsComponent } from './my-tournaments/my-tournaments.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
           {
             path:'new-tournament',
             component:NewTournamentComponent
+          },
+          {
+            path:'my-tournaments',
+            component:MyTournamentsComponent
           }
         ]
       }

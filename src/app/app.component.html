@@ -1,3 +1,7 @@
+<!-- global error message -->
+<div [ngClass]="['alert', 'global-error', alertService.className]" role="alert" *ngIf="alertService.show">
+    {{alertService.message}}
+</div>
 <!-- top header navigation -->
 <app-main-nav [navList]="navList"></app-main-nav>
 <router-outlet #routerOutlet="outlet"></router-outlet>

@@ -1,8 +1,5 @@
 <app-popup>
     <section class="login">
-        <div class="alert alert-danger" role="alert" *ngIf="error">
-            {{error}}
-        </div>
         <form (submit)="login()" [formGroup]="loginForm">
             <div [ngClass]="[loginForm.status, 'form-group']">
               <label for="exampleInputEmail1">Mobile Number</label>

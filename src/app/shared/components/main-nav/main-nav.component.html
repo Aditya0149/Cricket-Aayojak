@@ -15,7 +15,10 @@
         </div>
       </li>
       <li class="nav-item" ngbDropdown *ngIf="authService.user">
-        <button class="nav-link btn" (click)="authService.logout()" >Logout</button>
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{authService.user.name}}</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="profile_dropdown">
+            <button class="btn" class="nav-link btn profile-link" (click)="authService.logout()" ngbDropdownItem>Logout</button>
+          </div>
       </li>
     </ul> 
     <div class="form-inline has-search col-md-10 col-sm-10 mx-auto mb-2">

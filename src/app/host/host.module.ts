@@ -10,9 +10,10 @@ import { SharedModule } from '../shared/shared.module';
 import { HostDashboadComponent } from './host-dashboad/host-dashboad.component';
 import { NewTournamentComponent } from './new-tournament/new-tournament.component';
 import { TournamentDetailsService } from '../providers/tournament-details.service';
+import { MyTournamentsComponent } from './my-tournaments/my-tournaments.component';
 
 @NgModule({
-  declarations: [HostProfileComponent, HostHomeComponent, TournamentComponent, HostDashboadComponent, NewTournamentComponent],
+  declarations: [HostProfileComponent, HostHomeComponent, TournamentComponent, HostDashboadComponent, NewTournamentComponent, MyTournamentsComponent],
   imports: [
     CommonModule,
     SharedModule,

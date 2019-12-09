@@ -1,6 +1,6 @@
 <div class="card text-center container">
-    <h2>{{profile?.name}}</h2>
-    <p><b>Address :</b> {{profile?.address}}</p>
-    <p><b>Phone no :</b> {{profile?.phone}}</p>
-    <p><b>Captain :</b> {{profile?.captain}}</p>
+    <h2>{{profile?.role | uppercase}} {{profile?.name | uppercase}}</h2>
+    <h4><b>Address :</b> {{profile?.address}}</h4>
+    <h4><b>Phone no :</b> {{profile?.id}}</h4>
+    <h4><b>Captain :</b> {{profile?.captain}}</h4>
 </div>

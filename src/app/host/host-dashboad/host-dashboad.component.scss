@@ -1,12 +1,22 @@
 .box {
     display: flex;
-    height: 4rem;
+    height: 8rem;
     border: 1px ridge;
     text-align: center;
     justify-content: center;
     align-items: center;
-    background: darkslategrey;
+    font-size: 1.5rem;
+    transition: grayscale .2s ease-in-out;
     &:hover {
-        opacity: 0.8;
+        filter: grayscale(1)
     }
+}
+.hosted_tournament {
+    background: url('../../../assets/images/hosted_tournament.jpg') no-repeat 0 100%;
+}
+.cricket_profile {
+    background: url('../../../assets/images/cricket_profile.jpeg') no-repeat 100%;
+}
+.start_tournament {
+    background: url('../../../assets/images/start_tournament.jpg') no-repeat 0 100%;
 }

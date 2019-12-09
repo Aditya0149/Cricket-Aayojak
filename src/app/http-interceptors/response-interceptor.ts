@@ -11,7 +11,7 @@ export class ResponseInterceptor implements HttpInterceptor {
     intercept(req:HttpRequest<any>, next:HttpHandler):Observable<HttpEvent<any>> {
 //        console.log("Request sent ",req);
         return next.handle(req).pipe(
-            retry(3),
+            retry(2),
             tap( resp => {
 //              console.log("Response received : ",resp);
             }),
@@ -30,7 +30,8 @@ export class ResponseInterceptor implements HttpInterceptor {
           `Backend returned code ${resp.status}, ` +
           `body was: ${resp.error}`);
         }
+
         // return an observable with a user-facing error message
-        return throwError('Something bad happened; please try again later.');
+        return throwError(resp);
       };
 }

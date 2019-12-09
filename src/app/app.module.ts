@@ -31,9 +31,6 @@ import { TournamentDetailsService } from './providers/tournament-details.service
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
     NgbModule,
     UsersModule,
     AppRoutingModule,

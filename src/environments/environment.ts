@@ -6,7 +6,7 @@ export const environment = {
   production: false
 };
 // Barakya - add base url here.
-export const BASE_URL = "api";
+export const BASE_URL = "http://localhost:3000/";
 
 /*
  * For easier debugging in development mode, you can import the following file

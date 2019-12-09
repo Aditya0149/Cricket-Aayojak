@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router'
 import { AuthService } from "../../providers/auth.service";
 import { PopupService } from "../../shared/components/popup/popup.service";
+import { AlertService } from 'src/app/providers/alert.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,6 @@ import { PopupService } from "../../shared/components/popup/popup.service";
 })
 export class LoginComponent implements OnInit {
   public title:string = "Login"
-  public error:string;
   public loginForm:any = this.fb.group({
     id: ['',Validators.required],
     password: ['',Validators.required],
@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
     private fb:FormBuilder, 
     private router:Router, 
     public authService:AuthService,
-    public popupService:PopupService
+    public popupService:PopupService,
+    public alertService:AlertService
   ) { }
 
   ngOnInit() {
@@ -31,20 +32,19 @@ export class LoginComponent implements OnInit {
   }
 
   public login = () => {
+    if(!this.loginForm.valid) {
+      this.alertService.displayMessage('Please enter username and password!','error');
+      return false;
+    }
     let user = this.loginForm.value;
     this.authService.login(user).subscribe(
       (resp) => {
-        if (user.password == resp.password) {
-          this.authService.user = { ...this.authService.fakeUser, id: resp['id'] };
-          this.popupService.closePopup();
+        this.popupService.closePopup();
           let redirecUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/host';
           this.router.navigateByUrl(`${redirecUrl}`);
+          this.authService.user = resp;
           localStorage.setItem("user",JSON.stringify(resp));
-        } else {
-          this.router.navigate([{ outlets: { popup: ['login'] } }]);
-          this.error = "Invalid credentials";
-        }
-      }
+      }, (err) => this.alertService.displayMessage(err.error,'error')
     )
   }
   public signIn() {

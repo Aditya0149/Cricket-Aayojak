@@ -1,19 +1,23 @@
-<div class="list-group mt-4">
-    <div href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let fixture of fixtures;">
-        <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{fixture.team1}} vs {{fixture.team2}}</h5>
-            <small>{{fixture.time}}</small>
+<div class="text-right" *ngIf="tournamentDetails.teamId == authService.user.id">
+    <i [ngClass]="{'fas':true, 'fa-plus':!toggleFixture, 'fa-list':toggleFixture}" (click)="toggleFixture=!toggleFixture"></i>
+</div>
+<app-display-message [message]="'No fixtures available yet.'" *ngIf="!fixtures || !fixtures?.length"></app-display-message>  
+<app-add-fixture *ngIf="toggleFixture" 
+    [tournamentDetails]="tournamentDetails" 
+    [tournamentId]="tournamentId" 
+    [pointsTable]="pointsTable"
+    (onFixtureAdded)="fixtureAdded($event)"
+    ></app-add-fixture>
+<div class="list-group mt-4" *ngIf="!toggleFixture">
+    <div class="list-group-item list-group-item-action" *ngFor="let fixture of fixtures;">
+        <ng-container *ngIf="tournamentDetails.teamId == authService.user.id">
+            <app-action-buttons (onDelete)="deleteFixture(fixture)"></app-action-buttons>
+        </ng-container>
+        <h5 class="mb-1">{{fixture.team1Name}} vs {{fixture.team2Name}}</h5>
+        <small><i class="far fa-clock"></i> {{fixture.time | caTime}}, <i class="far fa-calendar-alt mr-2"></i>{{fixture.date | date}}</small>
+        <p class="mb-1">{{fixture.status}}</p>
+        <div class="d-flex justify-content-center" *ngIf="tournamentDetails.teamId == authService.user.id">
+            <button class="btn btn-primary" (click)="startTournament(fixture.id)"> {{ fixture.status == 'Running' ? 'Resume' : 'Start'}}</button>
         </div>
-        <p class="mb-1">{{fixture.result}}</p>
-        <small><strong>venue : </strong> {{fixture.venue}}</small>
     </div>
 </div>
-<!-- <ul>
-    <li *ngFor="let fixture of fixtures;">
-        {{fixture.team1}} vs {{fixture.team2}}<br/>
-        {{fixture.statusDetails}}
-        <div *ngIf="tournamentDetailsService.host">
-            <button>{{fixture.status == 'not started' ? 'Add' : 'Edit'}}</button>
-        </div>
-    </li>
-</ul> -->

@@ -8,6 +8,10 @@ const routes: Routes = [
     path: 'host',
     loadChildren: () => import("./host/host.module").then ( mod => mod.HostModule )
   },
+  {
+    path: 'match',
+    loadChildren: () => import("./match/match.module").then ( mod => mod.MatchModule )
+  },
   { path: '**', component: PageNotFoundComponent }
 ]
 

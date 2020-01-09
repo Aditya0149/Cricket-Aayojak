@@ -10,13 +10,23 @@ import { FixturesComponent } from './components/fixtures/fixtures.component';
 import { PointsTableComponent } from './components/points-table/points-table.component';
 import { TournamentPaneComponent } from './components/tournament-pane/tournament-pane.component';
 import { PopupComponent } from './components/popup/popup.component';
+import { RequestPaneComponent } from './components/request-pane/request-pane.component';
+import { DisplayMessageComponent } from './components/display-message/display-message.component';
+import { CaTimePipe } from './pipes/ca-time.pipe';
+import { AddFixtureComponent } from './components/add-fixture/add-fixture.component';
+import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 
 @NgModule({
   declarations: [
     FixturesComponent,
     PointsTableComponent,
     TournamentPaneComponent,
-    PopupComponent
+    PopupComponent,
+    RequestPaneComponent,
+    DisplayMessageComponent,
+    CaTimePipe,
+    AddFixtureComponent,
+    ActionButtonsComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +45,11 @@ import { PopupComponent } from './components/popup/popup.component';
     FixturesComponent,
     PointsTableComponent,
     TournamentPaneComponent,
-    PopupComponent
+    PopupComponent,
+    RequestPaneComponent,
+    DisplayMessageComponent,
+    AddFixtureComponent,
+    ActionButtonsComponent
   ]
 })
 export class SharedModule { }

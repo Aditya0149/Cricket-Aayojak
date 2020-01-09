@@ -6,3 +6,13 @@
 li.active a {
     color: yellow !important;
 }
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: .25em 0;
+    i {
+        cursor: pointer;
+        margin: 0 .25em;
+    }
+}

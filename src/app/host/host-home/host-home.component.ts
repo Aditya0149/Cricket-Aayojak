@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TournamentDetailsService } from '../../providers/tournament-details.service';
+import { HostService } from '../host.service';
 @Component({
   selector: 'app-host-home',
   templateUrl: './host-home.component.html',
@@ -7,9 +7,11 @@ import { TournamentDetailsService } from '../../providers/tournament-details.ser
 })
 export class HostHomeComponent implements OnInit {
 
-  constructor(public tournamentDetailsService:TournamentDetailsService, public tService:TournamentDetailsService) { }
+  constructor(public hostService:HostService) { }
 
   ngOnInit() {
+    
   }
+  
 
 }

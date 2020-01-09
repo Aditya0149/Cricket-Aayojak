@@ -9,18 +9,20 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { SharedModule } from '../shared/shared.module';
 import { HostDashboadComponent } from './host-dashboad/host-dashboad.component';
 import { NewTournamentComponent } from './new-tournament/new-tournament.component';
-import { TournamentDetailsService } from '../providers/tournament-details.service';
 import { MyTournamentsComponent } from './my-tournaments/my-tournaments.component';
+import { NewTournamentService } from './new-tournament/new-tournament.service';
+import { HostService } from './host.service';
+import { JoinRequestsComponent } from './join-requests/join-requests.component';
 
 @NgModule({
-  declarations: [HostProfileComponent, HostHomeComponent, TournamentComponent, HostDashboadComponent, NewTournamentComponent, MyTournamentsComponent],
+  declarations: [HostProfileComponent, HostHomeComponent, TournamentComponent, HostDashboadComponent, NewTournamentComponent, MyTournamentsComponent, JoinRequestsComponent],
   imports: [
     CommonModule,
     SharedModule,
     HostRoutingModule
   ],
   providers: [
-  //  TournamentDetailsService
+    HostService
   ]
 })
 export class HostModule { }

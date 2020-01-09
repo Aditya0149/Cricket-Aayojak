@@ -1,5 +1,5 @@
 export interface Tounrament {
-    id: number, 
+    id: any, 
     teamId: string, 
     name:string, 
     playerCount: number, 
@@ -8,5 +8,6 @@ export interface Tounrament {
     prize1 : number, 
     prize2 : number, 
     startDate : string, 
-    endDate : string
+    endDate : string,
+    time : string
 }

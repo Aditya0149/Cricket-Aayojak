@@ -1,6 +1,21 @@
-<div class="card text-center container">
-    <h2>{{profile?.role | uppercase}} {{profile?.name | uppercase}}</h2>
-    <h4><b>Address :</b> {{profile?.address}}</h4>
-    <h4><b>Phone no :</b> {{profile?.id}}</h4>
-    <h4><b>Captain :</b> {{profile?.captain}}</h4>
+<div class="card text-center">
+    <div class="card-header">
+        <h2>{{profile?.role}} {{profile?.name}}</h2>
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+
+            <dl class="row">
+                <dt class="col-sm-3">Address</dt>
+                <dd class="col-sm-9">{{profile?.address}}</dd>
+                <dt class="col-sm-3">Phone no</dt>
+                <dd class="col-sm-9">{{profile?.id}}</dd>
+            </dl>
+
+            <footer class="blockquote-footer">Captain is
+                <cite title="Source Title">{{profile?.captain}}</cite>
+            </footer>
+        </blockquote>
+    </div>
 </div>
+

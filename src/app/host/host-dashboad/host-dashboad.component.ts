@@ -9,7 +9,8 @@ export class HostDashboadComponent implements OnInit {
   public dashboardLinks = [
     {url:"profile", name: "Profile", class: 'cricket_profile'},
     {url:"new-tournament", name: "Start Tournament", class:'start_tournament'},
-    {url:"my-tournaments", name: "My Tournaments", class:'hosted_tournament'}
+    {url:"my-tournaments", name: "My Tournaments", class:'hosted_tournament'},
+    {url:"joinRequests", name: "Join Requests", class:'cricket_profile'}
   ]
   constructor() { }
 

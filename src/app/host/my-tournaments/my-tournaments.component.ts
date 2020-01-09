@@ -17,4 +17,8 @@ export class MyTournamentsComponent implements OnInit {
     )
   }
 
+  deleteTournament(e) {
+    this.tournaments.splice(this.tournaments.indexOf(e),1);
+  }
+
 }

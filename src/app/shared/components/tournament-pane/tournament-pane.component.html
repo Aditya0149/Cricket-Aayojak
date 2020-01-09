@@ -1,51 +1,35 @@
-<div class="accordion" id="accordionExample">
-    <div class="card">
-        <div class="card-header" id="headingOne">
-        <p class="mb-0 text-center tournament_name" (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-            {{tournament.name}} <span class="badge badge-danger" *ngIf="tournament.status == 'pending'">APPROVAL {{tournament.status | uppercase }}</span>
+<div class="card text-center m-1">
+    <div class="card-body p-1">
+        <h5 class="card-title mt-2 text-dark">
+            <div class="action-buttons">
+                <app-action-buttons  *ngIf="tournament.teamId == authService.user?.id"
+                    (onEdit)="editTournament()"
+                    (onDelete)="deleteTournament()"
+                ></app-action-buttons>
+                <i class="fas fa-hands-helping" (click)="joinTournament(tournament)"></i>
+            </div>
+            <div class="headline btn-link" routerLink="/tournament-details/{{tournament?.id}}">
+                <span class="card-link">{{tournament.name}}</span> 
+                <span class="badge badge-danger" *ngIf="tournament.status == 'pending'">APPROVAL {{tournament.status | uppercase }}</span>
+            </div>            
+        </h5>
+        <p class="card-text text-secondary d-flex justify-content-between more-details">
+            <span>
+                <div><i class="fas fa-users"></i> Players</div>
+                {{tournament?.playerCount}}
+            </span>        
+            <span>
+                <div><i class="fas fa-coins"></i> Fees</div>
+                {{tournament?.entryFee}} to {{tournament?.reEntryFee}}
+            </span>
+            <span>
+                <div><i class="fas fa-award"></i> Prizes</div>
+                {{tournament?.secondPrize}} to {{tournament?.firstPrize}}
+            </span>
         </p>
-        </div>
-
-        <div class="collapse show" id="collapseExample" [ngbCollapse]="isCollapsed">
-        <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
-                    playerCount : <span class="badge badge-primary badge-pill">{{tournament.playerCount}}</span></li>
-                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
-                    entryFee : <span class="badge badge-primary badge-pill">{{tournament.entryFee}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
-                    reEntryFee : <span class="badge badge-primary badge-pill">{{tournament.reEntryFee}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
-                    prize1 : <span class="badge badge-primary badge-pill">{{tournament.firstPrize}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
-                    prize2 : <span class="badge badge-primary badge-pill">{{tournament.secondPrize}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
-                    startDate : <span class="badge badge-primary badge-pill">{{tournament.startDate | date}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
-                    endDate : <span class="badge badge-primary badge-pill">{{tournament.endDate | date}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center col-md-8 mx-auto">
-                    time : <span class="badge badge-primary badge-pill">{{tournament.time}}</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-center align-items-center col-md-8 mx-auto">
-                    <a class="btn btn-info mr-2" routerLink="/tournament-details/{{tournament.id}}" [state]="{ hello: 'world' }" >View Stats</a>
-                    <ng-container *ngIf="tournament.teamId == authService.user.id">
-                        <button class="btn btn-outline-warning mr-2" (click)="editTournament(tournament)">EDIT</button>
-                        <button class="btn btn-outline-danger" (click)="deleteTournament(tournament.id)">DELETE</button>
-                    </ng-container>
-                    <ng-container *ngIf="tournament.teamId != authService.user.id">
-                        <button class="btn btn-outline-dark">JOIN</button>
-                    </ng-container>
-                </li>
-
-            </ul>
-   
-        </div>
+    </div>
+    <div class="card-footer text-muted blockquote-footer">
+        <i class="far fa-calendar-alt mr-1"></i> from {{tournament?.startDate | date:'fullDate'}} to  {{tournament?.endDate | date}}<br/>
+        <i class="far fa-clock"></i> {{tournament?.time | caTime }}
     </div>
 </div>

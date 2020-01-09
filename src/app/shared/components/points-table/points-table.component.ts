@@ -7,13 +7,10 @@ import { TournamentDetailsService } from '../../../providers/tournament-details.
 })
 export class PointsTableComponent implements OnInit {
   @Input('tournamentId') tournamentId:string;
-  public pointsTable:any;
+  @Input('pointsTable') pointsTable:any;
   constructor(private tournamentDetailsService:TournamentDetailsService) { }
 
   ngOnInit() {
-    this.tournamentDetailsService.getPointsTable(this.tournamentId).subscribe(data => {
-      this.pointsTable = data;
-    });
   }
 
 }

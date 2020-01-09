@@ -7,6 +7,8 @@
     align-items: center;
     font-size: 1.5rem;
     transition: grayscale .2s ease-in-out;
+    line-height: 1;
+    font-weight: bold;
     &:hover {
         filter: grayscale(1)
     }

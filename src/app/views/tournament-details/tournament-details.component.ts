@@ -16,16 +16,11 @@ export class TournamentDetailsComponent implements OnInit {
   constructor(private tournamentDetailsService:TournamentDetailsService, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    // this.tournamentId = this.route.snapshot.paramMap.get("id");
-    // this.tournamentDetailsService.getTournamentDetails(this.tournamentId).subscribe( data => {
-    //   console.log(this.route.snapshot.paramMap.keys);
-    //   this.tournamentDetails = data;
-    // });
     this.route.paramMap.pipe(
       switchMap((params:ParamMap) => {
         return this.tournamentDetailsService.getTournamentDetails(params.get("id"));
       })
     ).subscribe( (data) => console.log(data));
-   }
+  }
 
 }

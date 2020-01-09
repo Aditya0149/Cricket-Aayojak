@@ -1,0 +1,30 @@
+<form [formGroup]="fixturesForm" class="container mt-3" (submit)="submit()">
+    <div class="form-group">
+            <select class="form-control" formControlName="team1" >
+                <option value="" disabled selected>Select team</option>
+                <option [value]="option.teamId + '#' + option.teamName" *ngFor="let option of pointsTable">{{option.teamName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select class="form-control" formControlName="team2" >
+                <option value="" disabled selected>Select team</option>
+                <option [value]="option.teamId + '#' + option.teamName" *ngFor="let option of pointsTable">{{option.teamName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" 
+            class="form-control" 
+            formControlName="date" 
+            ngbDatepicker 
+            #date="ngbDatepicker"
+            (click)="date.toggle()" 
+            (dateSelect)="date.value = $event"
+            [minDate]="minDate"
+            [maxDate]="maxDate"
+            readonly >
+        </div>
+        <div class="form-group">
+            <ngb-timepicker formControlName="time" [meridian]="true"></ngb-timepicker>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Fixture</button>
+</form>

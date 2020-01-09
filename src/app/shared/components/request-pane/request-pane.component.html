@@ -1,0 +1,9 @@
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let request of requests">
+        <div class="m-2">From team {{request.from}} for {{request.to}}</div>
+        <div class="d-flex justify-content-center align-items-center">
+            <button type="button" class="btn btn-success m-2" (click)="this.onAction.emit({ status:'accept',id:request.id })">Accept</button>
+            <button type="button" class="btn btn-danger m-2" (click)="this.onAction.emit({ status:'reject',id:request.id })">Reject</button>
+        </div>
+    </li>
+</ul>

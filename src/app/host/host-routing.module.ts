@@ -8,6 +8,8 @@ import { HostProfileComponent } from "./host-profile/host-profile.component";
 import { HostDashboadComponent } from './host-dashboad/host-dashboad.component';
 import { NewTournamentComponent } from './new-tournament/new-tournament.component';
 import { MyTournamentsComponent } from './my-tournaments/my-tournaments.component';
+import { JoinRequestsComponent } from './join-requests/join-requests.component';
+import { NavigationGuard } from '../guards/navigation.guard';
 
 const routes: Routes = [
   {
@@ -32,8 +34,16 @@ const routes: Routes = [
             component:NewTournamentComponent
           },
           {
+            path:'edit-tournament',
+            component:NewTournamentComponent
+          },
+          {
             path:'my-tournaments',
             component:MyTournamentsComponent
+          },
+          {
+            path:'joinRequests',
+            component: JoinRequestsComponent
           }
         ]
       }

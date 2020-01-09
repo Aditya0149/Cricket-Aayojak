@@ -8,7 +8,7 @@ import {
 import { of, EMPTY }  from 'rxjs';
 import { mergeMap }         from 'rxjs/operators';
 
-import { HostService } from '../../providers/host.service';
+import { HostService } from '../host.service';
 
 @Injectable({
   providedIn: 'root'

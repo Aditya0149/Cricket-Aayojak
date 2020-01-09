@@ -4,17 +4,13 @@
     <ngb-tabset>
         <ngb-tab title="Fixtures">
             <ng-template ngbTabContent>
-                <app-fixtures [tournamentId]="tournamentId" ></app-fixtures>
+                <app-fixtures [tournamentDetails]="tournamentDetails" [tournamentId]="tournamentId" [pointsTable]="pointsTable"></app-fixtures>
             </ng-template>
         </ngb-tab>
         <ngb-tab title="Points Table">
             <ng-template ngbTabContent>
-                <app-points-table [tournamentId]="tournamentId"></app-points-table>
+                <app-points-table [tournamentId]="tournamentId" [pointsTable]="pointsTable"></app-points-table>
             </ng-template>
         </ngb-tab>
     </ngb-tabset>
-    <!-- <button (click)="currentView='fixtures'">Fixtures</button>
-    <button (click)="currentView='pointsTable'">Points table</button> 
-    <app-fixtures [tournamentId]="tournamentId" *ngIf="currentView == 'fixtures'" ></app-fixtures>       
-    <app-points-table [tournamentId]="tournamentId" *ngIf="currentView == 'pointsTable'"></app-points-table> -->
 </div>

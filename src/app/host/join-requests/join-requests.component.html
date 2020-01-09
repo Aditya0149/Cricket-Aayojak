@@ -1,0 +1,2 @@
+<app-display-message [message]="'No pending join requests.'" *ngIf="!joinRequests.length"></app-display-message>
+<app-request-pane [requests]="joinRequests" (onAction)="doAction($event)"></app-request-pane>
